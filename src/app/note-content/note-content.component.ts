@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../shared/reducers';
+import { Observable } from 'rxjs';
+import { Note } from '../shared/models/note';
+import { selectCurrentNote } from '../shared/selectors/notes.selectors';
 
 @Component({
   selector: 'app-note-content',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
+
+  selectedNote: string = "example";
 
   ngOnInit(): void {
+    this.store.pipe(select(selectCurrentNote)).subscribe(data => {
+      if (data)
+        this.selectedNote = data.content
+    })
   }
 
 }

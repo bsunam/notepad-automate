@@ -1,1 +1,5 @@
-<p>sidebar-content works!</p>
+<mat-nav-list>
+    <a mat-list-item routerLink="." *ngFor="let nav of notes$ | async" (click) = "selectedNote(nav)">
+           <p> {{nav.content}} </p>
+    </a>
+</mat-nav-list>
