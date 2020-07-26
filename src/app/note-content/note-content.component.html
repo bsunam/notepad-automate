@@ -1,1 +1,1 @@
-<p contenteditable="true" [innerHTML] = "selectedNote">note-content works!</p>
+<p contenteditable="true" [textContent]="selectedNote?.content" (input)="bindData($event.target.textContent)">note-content works!</p>

@@ -25,7 +25,10 @@ export const notesReducer = createReducer(
             action.notes, state)),
     
     on(noteActions.setSelectedNote,
-        (state, action) => ({...state, selectedNoteId: action.noteId}))
+        (state, action) => ({...state, selectedNoteId: action.noteId})),
+
+    on(noteActions.updateNote,
+        (state, action) => adapter.updateOne(action.note, state))
         
         );
 
