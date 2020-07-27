@@ -13,6 +13,7 @@ import { HeaderContentComponent } from './header-content/header-content.componen
 import { SidebarContentComponent } from './sidebar-content/sidebar-content.component';
 import { NoteContentComponent } from './note-content/note-content.component';
 import { EffectsModule } from '@ngrx/effects';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { EffectsModule } from '@ngrx/effects';
       metaReducers
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

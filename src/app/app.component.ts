@@ -13,9 +13,6 @@ import { NotesService } from './shared/services/notes.service';
 export class AppComponent implements OnInit{
   mobileQuery: MediaQueryList;
 
-
- 
-
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private store: Store<AppState>, private service: NotesService) {
