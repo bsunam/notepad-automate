@@ -1,6 +1,6 @@
 
 <mat-selection-list #shoes [multiple]="false">
     <mat-list-option *ngFor="let nav of notes$ | async" >
-        <p (click) = "selectedNote(nav)"><b>&nbsp;&nbsp; {{nav.content ? getString(nav.content) : nav.placeholder }} </b><br><span>{{nav.date}}</span></p>
+        <p (click) = "selectedNote(nav)"><b> {{nav.content ? getString(nav.content) : nav.placeholder }} </b><br><span>{{nav.date}}</span></p>
     </mat-list-option>
   </mat-selection-list>
