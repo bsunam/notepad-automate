@@ -23,6 +23,6 @@ export const selectCurrentNote = createSelector(
 export const filterNotes = createSelector(
   selectAllNotes,
   searchValue,
-  (NoteEntities, value) => NoteEntities.filter(note => note.content.indexOf(value.toString()) != -1)
+  (NoteEntities, value) => NoteEntities.filter(note => note.content ? (note.content.toLowerCase().indexOf(value.toString()) != -1) : (note.placeholder.toLowerCase().indexOf(value.toString()) != -1))
 );
 

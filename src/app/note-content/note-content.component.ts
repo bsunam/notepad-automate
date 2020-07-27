@@ -16,14 +16,14 @@ export class NoteContentComponent implements OnInit {
 
   constructor(private store: Store<AppState>) { }
 
-  selectedNote$: Observable<Note>;
   selectedNote: Note;
 
   ngOnInit(): void {
-    this.selectedNote$ = this.store.pipe(select(selectCurrentNote));
-    this.selectedNote$.subscribe(data => {
+    this.store.pipe(select(selectCurrentNote)).subscribe(data => {
       if (data)
         this.selectedNote = data
+      else
+        this.selectedNote = null;
     })
   }
 
